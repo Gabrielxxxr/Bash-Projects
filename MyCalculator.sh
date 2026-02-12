@@ -1,0 +1,39 @@
+#!/usr/bin/bash
+
+#name=$(whoami)
+
+#if [[ "$name" == "$(whoami)" ]]; then
+#	echo -e "\t\t\tWelcome, ${name^^}"
+#else
+#	echo -e "\tPermissions denied"
+#fi
+#sleep 3
+
+echo -e "\t-------------------------------------------"
+echo -e "\t\tCommencing Basic Calculator"
+echo -e "\t-------------------------------------------"
+echo ""
+
+echo "Note: use of symbols/special characters are prohibited else no output"
+sleep 2
+
+echo ""
+read -p "Please enter a number: " num1
+echo " "
+read -p "Please enter a number: " num2
+echo " "
+read -p "Please enter the operator ( +, -, *, / ): " op
+
+if [ "$op" == "+" ]; then
+	result=$((num1 + num2))
+elif [ "$op" == "-" ]; then
+	result=$((num1 - num2))
+elif [ "$op" == "*" ]; then
+	result=$((num1 * num2))
+elif [ "$op" == "/" ]; then
+	result=$((num1 / num2))
+#elif [ "$op" ]
+fi
+
+echo ""
+echo "The result is: $result"  2> /dev/null
