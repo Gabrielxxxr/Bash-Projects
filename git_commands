@@ -1,0 +1,237 @@
+  git
+  Distributed version control system.  Some subcommands such as `commit`, `add`, `branch`, `switch`, `push`, etc. have their own usage documentation.  More information: https://git-scm.com/docs/git.
+  - Create an empty Git repository:    git init
+  - Clone a remote Git repository from the internet:    git clone https://example.com/repo.git
+  - View the status of the local repository:    git status
+  - Stage all changes for a commit:    git add --all
+  - Commit changes to version history:    git commit --message message_text
+  - Push local commits to a remote repository:    git push
+  - Pull any changes made to a remote:    git pull
+  - Reset everything the way it was in the latest commit:    git reset --hard; git clean --force
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git init
+  Initialize a new local Git repository.  More information: https://git-scm.com/docs/git-init.
+  - Initialize a new local repository:    git init
+  - Initialize a repository with the specified name for the initial branch:    git init --initial-branch branch_name
+  - Initialize a repository using SHA256 for object hashes (requires Git version 2.29+):    git init --object-format sha256
+  - Initialize a barebones repository, suitable for use as a remote over SSH:    git init --bare
+
+
+
+
+
+
+
+
+
+
+
+
+  git status
+  Show the changes to files in a Git repository.  List changed, added, and deleted files compared to the currently checked-out commit.  More information: https://git-scm.com/docs/git-status.
+  - Show changed files which are not yet added for commit:    git status
+  - Give output in short format:    git status --short
+  - Show verbose information on changes in both the staging area and working directory:    git status --verbose --verbose
+  - Show the branch and tracking info:    git status --branch
+  - Show output in short format along with branch info:    git status --short --branch
+  - Show the number of entries currently stashed away:    git status --show-stash
+  - Don't show untracked files in the output:    git status --untracked-files=no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git add
+  Stage changed files for a commit.  More information: https://git-scm.com/docs/git-add.
+  - Stage a file for a commit:    git add path/to/file
+  - Add all files (tracked and untracked):    git add --all
+  - Add all files recursively starting from the current folder:    git add .
+  - Only add already tracked files:    git add --update
+  - Add an ignored file:    git add --force path/to/file
+  - Interactively stage parts of files:    git add --patch
+  - Interactively stage parts of a given file:    git add --patch path/to/file
+  - Interactively stage a file:    git add --interactive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git commit
+  Commit files to the repository.  More information: https://git-scm.com/docs/git-commit.
+  - Commit staged files to the repository with a message:    git commit --message "message"
+  - Commit staged files with a message read from a file:    git commit --file path/to/commit_message_file
+  - Auto stage all modified and deleted files and commit with a message:    git commit --all --message "message"
+  - Commit staged files and sign them with the specified GPG key (or the one defined in the configuration file if no argument is specified):    git commit --gpg-sign key_id --message "message"
+  - Update the last commit by adding the currently staged changes, changing the commit's hash:    git commit --amend
+  - Commit only specific (already staged) files:    git commit path/to/file1 path/to/file2 ...
+  - Create a commit, even if there are no staged files:    git commit --message "message" --allow-empty
+  - Create a commit with a message and a description:    git commit --message "message" --message "description"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git push
+  Push commits to a remote repository.  More information: https://git-scm.com/docs/git-push.
+  - Send local changes in the current branch to its default remote counterpart:    git push
+  - Send changes from a specific local branch to its remote counterpart:    git push remote_name local_branch
+  - Send changes from a specific local branch to its remote counterpart, and set the remote one as the default push/pull target of the local one:    git push --set-upstream remote_name local_branch
+  - Send changes from a specific local branch to a specific remote branch:    git push remote_name local_branch:remote_branch
+  - Send changes on all local branches to their counterparts in a given remote repository:    git push --all remote_name
+  - Delete a branch in a remote repository:    git push remote_name --delete remote_branch
+  - Remove remote branches that don't have a local counterpart:    git push --prune remote_name
+  - Publish tags that aren't yet in the remote repository:    git push --tags
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git pull
+  Fetch branch from a remote repository and merge it to local repository.  More information: https://git-scm.com/docs/git-pull.
+  - Download changes from default remote repository and merge it:    git pull
+  - Download changes from default remote repository and use fast-forward:    git pull --rebase
+  - Download changes from given remote repository and branch, then merge them into [3mHEAD[23m:    git pull remote_name branch
+
+
+
+
+
+
+
+
+
+
+  git reset
+  Undo commits or unstage changes by resetting the current Git HEAD to the specified state.  If a path is passed, it works as "unstage"; if a commit hash or branch is passed, it works as "uncommit".  More information: https://git-scm.com/docs/git-reset.
+  - Unstage everything:    git reset
+  - Unstage specific file(s):    git reset path/to/file1 path/to/file2 ...
+  - Interactively unstage portions of a file:    git reset --patch path/to/file
+  - Undo the last commit, keeping its changes (and any further uncommitted changes) in the filesystem:    git reset HEAD~
+  - Undo the last two commits, adding their changes to the index, i.e. staged for commit:    git reset --soft HEAD~2
+  - Discard any uncommitted changes, staged or not (for only unstaged changes, use [3mgit checkout[23m):    git reset --hard
+  - Reset the repository to a given commit, discarding committed, staged, and uncommitted changes since then:    git reset --hard commit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git clean
+  Remove files not tracked by Git from the working tree.  More information: https://git-scm.com/docs/git-clean.
+  - Interactively delete untracked files:    git clean --interactive
+  - Show which files would be deleted without actually deleting them:    git clean --dry-run
+  - Immediately force deletion of all untracked files:    git clean --force
+  - Delete untracked [d]irectories:    git clean --force -d
+  - Delete only untracked files matching specific paths or glob patterns:    git clean --force -- path/to/directory '*.ext'
+  - Delete untracked files except those matching the given patterns:    git clean --force --exclude '*.ext' --exclude path/to/directory/
+  - Delete untracked files and e[x]cluded files (those listed in [3m.gitignore[23m and [3m.git/info/exclude[23m):    git clean --force -x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
