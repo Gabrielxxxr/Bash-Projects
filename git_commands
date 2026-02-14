@@ -303,7 +303,37 @@
   - Revert a global configuration entry to its default value:    git config --global --unset alias.unstage
   - Edit the local Git configuration ([3m.git/config[23m) in the default editor:    git config --edit
   - Edit the global Git configuration ([3m~/.gitconfig[23m by default or [3m$XDG_CONFIG_HOME/git/config[23m if such a file exists) in the default editor:    git config --global --edit
+  - To set all branches you create by default to a certain :	git config --global init.defaultBranch branch_name
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git checkout
+  Checkout a branch or paths to the working tree.  More information: https://git-scm.com/docs/git-checkout.
+  - Create and switch to a new branch:    git checkout -b branch_name
+  - Create and switch to a new branch based on a specific reference (branch, remote/branch, tag are examples of valid references):    git checkout -b branch_name reference
+  - Switch to an existing local branch:    git checkout branch_name
+  - Switch to the previously checked out branch:    git checkout -
+  - Switch to an existing remote branch:    git checkout --track remote_name/branch_name
+  - Discard all unstaged changes in the current directory (see [3mgit reset[23m for more undo-like commands):    git checkout .
+  - Discard unstaged changes to a given file:    git checkout path/to/file
+  - Replace a file in the current directory with the version of it committed in a given branch:    git checkout branch_name -- path/to/file
 
 
 
