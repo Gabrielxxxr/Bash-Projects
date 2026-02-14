@@ -32,7 +32,7 @@
   git init
   Initialize a new local Git repository.  More information: https://git-scm.com/docs/git-init.
   - Initialize a new local repository:    git init
-  - Initialize a repository with the specified name for the initial branch:    git init --initial-branch branch_name
+  - Initialize a repository with the specified name for the initial branch:    git init --initial-branch=branch_name or git init -b branch_name
   - Initialize a repository using SHA256 for object hashes (requires Git version 2.29+):    git init --object-format sha256
   - Initialize a barebones repository, suitable for use as a remote over SSH:    git init --bare
 
@@ -217,6 +217,95 @@
   - Delete only untracked files matching specific paths or glob patterns:    git clean --force -- path/to/directory '*.ext'
   - Delete untracked files except those matching the given patterns:    git clean --force --exclude '*.ext' --exclude path/to/directory/
   - Delete untracked files and e[x]cluded files (those listed in [3m.gitignore[23m and [3m.git/info/exclude[23m):    git clean --force -x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git branch
+  Main Git command for working with branches.  More information: https://git-scm.com/docs/git-branch.
+  - List all branches (local and remote; the current branch is highlighted by [3m*[23m):    git branch --all
+  - List which branches include a specific Git commit in their history:    git branch --all --contains commit_hash
+  - Show the name of the current branch:    git branch --show-current
+  - Create new branch based on the current commit:    git branch branch_name
+  - Create new branch based on a specific commit:    git branch branch_name commit_hash
+  - Rename a branch (you must switch to a different branch before doing this):    git branch --move old_branch_name new_branch_name
+  - Delete a local branch (you must switch to a different branch before doing this):    git branch --delete branch_name
+  - Delete a remote branch:    git push remote_name --delete remote_branch_name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git switch
+  Switch between Git branches. Requires Git version 2.23+.  See also: `git checkout`.  More information: https://git-scm.com/docs/git-switch.
+  - Switch to an existing branch:    git switch branch_name
+  - Create a new branch and switch to it:    git switch --create branch_name
+  - Create a new branch based on an existing commit and switch to it:    git switch --create branch_name commit
+  - Switch to the previous branch:    git switch -
+  - Switch to a branch and update all submodules to match:    git switch --recurse-submodules branch_name
+  - Switch to a branch and automatically merge the current branch and any uncommitted changes into it:    git switch --merge branch_name
+  - Switch to a tag:    git switch --detach tag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  git config
+  Manage custom configuration options for Git repositories.  These configurations can be local (for the current repository) or global (for the current user).  More information: https://git-scm.com/docs/git-config.
+  - Globally set your name or email (this information is required to commit to a repository and will be included in all commits):    git config --global user.name|user.email "Your Name|email@example.com"
+  - List local, global, or system configuration entries and show their file location:    git config --list --local|global|system --show-origin
+  - Set the global value of a given configuration entry (in this case an alias):    git config --global alias.unstage "reset HEAD --"
+  - Get the value of a given configuration entry:    git config alias.unstage
+  - Use an alias:    git unstage
+  - Revert a global configuration entry to its default value:    git config --global --unset alias.unstage
+  - Edit the local Git configuration ([3m.git/config[23m) in the default editor:    git config --edit
+  - Edit the global Git configuration ([3m~/.gitconfig[23m by default or [3m$XDG_CONFIG_HOME/git/config[23m if such a file exists) in the default editor:    git config --global --edit
+
+
+
 
 
 
