@@ -39,4 +39,3 @@ echo ""
 if
 echo "The result is: $result"  2> /dev/null
 
-# ツサソヒ  コミ オレ	モネルメ

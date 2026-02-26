@@ -1,4 +1,0 @@
-ls: invalid option -- '!'
-Try 'ls --help' for more information.
-ls: invalid option -- '!'
-Try 'ls --help' for more information.
